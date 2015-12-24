@@ -9,6 +9,8 @@
 dir=~/dotfiles			# dotfiles directory
 olddir=~/dotfiles_old		# old dotfiles backup directory
 files="vimrc"			# list of files/folders to symlink in homeidr
+colorsdir=~/dotfiles/vimcolors
+colors="itg_flat.vim"
 
 ########
 
@@ -28,4 +30,10 @@ for file in $files; do
     mv ~/.$file $olddir/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
+done
+
+# Create symlinks for any color schemes as well
+for color in  $colors; do
+	echo "Creating symlink to $color in the colors directory of vim"
+	ln -s $colorsdir/$color ~/.vim/colors/$color
 done
