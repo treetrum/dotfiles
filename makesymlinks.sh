@@ -34,6 +34,7 @@ done
 
 # Create symlinks for any color schemes as well
 for color in  $colors; do
+	mkdir -p ~/.vim/colors
 	echo "Creating symlink to $color in the colors directory of vim"
 	ln -s $colorsdir/$color ~/.vim/colors/$color
 done
