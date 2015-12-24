@@ -30,3 +30,4 @@ filetype plugin indent on    " required
 set ruler laststatus=2 number title hlsearch
 syntax on
 colorscheme spacegray
+map <C-n> :NERDTreeToggle<CR>
