@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 " PLACE PLUGINS HERE
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -33,3 +34,13 @@ colorscheme spacegray
 
 " Setup 'Control-n' to toggle NerdTree
 map <C-n> :NERDTreeToggle<CR>
+
+" Set tab width to be 4 spaces wide
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Ignore things in Control P
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
