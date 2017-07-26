@@ -72,7 +72,7 @@ rules:
   clean-import-paths: 1
   empty-args: 1
   hex-length: 1
-  hex-notation: 1
+  hex-notation: 0
   indentation:
     - 0
     -
