@@ -6,7 +6,7 @@
 
 ######### Variables
 
-dir=$(pwd)			# dotfiles directory
+dir=~/.dotfiles			# dotfiles directory
 backupdir="$dir/backup"		# old dotfiles backup directory
 colorsdir="$dir/vimcolors"
 dotfilesdir="$dir/dotfiles"
@@ -52,6 +52,12 @@ echo ""
 echo "---------------------------------------------"
 for color in  $colors; do
 	mkdir -p ~/.vim/colors
+
+    if [ -h ~/.vim/colors/$color ]; then
+        echo "Removing $color symlink"
+        rm ~/.vim/colors/$color
+    fi
+
 	echo "Creating symlink from $color to ~/.vim/colors/$color"
 	ln -s $colorsdir/$color ~/.vim/colors/$color
     echo "---------------------------------------------"
