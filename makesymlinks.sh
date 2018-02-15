@@ -6,14 +6,14 @@
 
 ######### Variables
 
-dir=~/.dotfiles			# dotfiles directory
-backupdir="$dir/backup"		# old dotfiles backup directory
-colorsdir="$dir/vimcolors"
-dotfilesdir="$dir/dotfiles"
+# Base dotfiles directory
+dir=~/.dotfiles 
 
-files="eslintrc.yml sass-lint.yml"			# list of files/folders to symlink in homeidr
+# Location of actual dotfiles
+dotfilesdir="$dir/dotfiles" 
 
-########
+# list of files/folders to symlink in homeidr
+files="eslintrc.yml sass-lint.yml"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 echo ""
