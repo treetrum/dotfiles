@@ -1,7 +1,11 @@
 # Sam Davis dotfiles
 
-Usage:
+### Prerequisites
+
+- Git
+- Stow `brew install stow`
+
+### Usage:
 
 1. Clone the repo to your home directory (location is important)
-1. Ensure you have stow installed: `brew install stow`
-1. Symlink it all together with stow: `stow .`
+1. Create the symlinks using `stow .`
