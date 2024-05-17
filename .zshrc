@@ -41,8 +41,17 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# Make instant prompt less verbose
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Aliases
 alias ll="ls -l"
+
+# Source all function files from functions_dir
+functions_dir=~/.zsh-functions
+for func_file in "$functions_dir"/*.zsh; do
+    [[ -e "$func_file" ]] && source "$func_file"
+done
