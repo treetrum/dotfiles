@@ -30,9 +30,9 @@ zinit light zsh-users/zsh-autosuggestions
 # Load completions
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # allow case insensitive completions
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select # highlights the active tab completion
 
-# Fish like history behaviour
+# Fish like history behaviour (up arrow fuzzy searching)
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
