@@ -45,7 +45,7 @@ download-tv() {
     local output="/Volumes/TV/$show/Season ${season}/$ep_name"
 
     echo -e "${green}Downloading episode from $url${normal}"
-    yt-dlp "$url" -o "$ep_name" --no-simulate --username="***REMOVED***" --password="***REMOVED***"
+    yt-dlp "$url" -o "$ep_name" --no-simulate --username="$TENPLAY_USERNAME" --password="$TENPLAY_PASSWORD"
 
     if [[ $? -ne 0 ]]; then
         echo -e "${red}Download failed${normal}"
