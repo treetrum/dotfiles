@@ -1,4 +1,7 @@
 download-tv() {
+    # Read .env file vars
+    set -a; source ../.env; set +a
+
     local show=""
     local season=""
     local episode=""
