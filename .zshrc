@@ -26,6 +26,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light dominik-schwabe/zsh-fnm
 
 # Load completions
 autoload -U compinit && compinit
