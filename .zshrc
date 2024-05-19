@@ -50,6 +50,11 @@ for func_file in "$functions_dir"/*.zsh; do
     [[ -e "$func_file" ]] && source "$func_file"
 done
 
+# Source the machine specific config if it exists
+if [ -f ./.not-tracked.zsh ]; then
+  source ./.not-tracked.zsh
+fi
+
 # Plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
