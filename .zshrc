@@ -22,12 +22,6 @@ autoload -Uz _zinit
 # powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light dominik-schwabe/zsh-fnm
-
 # Load completions
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # allow case insensitive completions
@@ -55,3 +49,9 @@ functions_dir=~/.zsh-functions
 for func_file in "$functions_dir"/*.zsh; do
     [[ -e "$func_file" ]] && source "$func_file"
 done
+
+# Plugins
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light dominik-schwabe/zsh-fnm
+zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be last. See https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
