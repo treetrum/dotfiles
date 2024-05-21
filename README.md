@@ -5,7 +5,7 @@
 - Git
 - Stow `brew install stow`
 
-### Usage:
+### Usage
 
 1. Clone the repo to your home directory (location is important)
 1. Create the symlinks using `stow .`
