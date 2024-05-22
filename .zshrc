@@ -51,8 +51,8 @@ for func_file in "$functions_dir"/*.zsh; do
 done
 
 # Source the machine specific config if it exists
-if [ -f ./.not-tracked.zsh ]; then
-  source ./.not-tracked.zsh
+if [ -f ~/.not-tracked.zsh ]; then
+  source ~/.not-tracked.zsh
 fi
 
 # Plugins
