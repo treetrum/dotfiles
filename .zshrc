@@ -55,6 +55,9 @@ if [ -f ~/.not-tracked.zsh ]; then
   source ~/.not-tracked.zsh
 fi
 
+# Oh My ZSH plugins
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+
 # Plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
