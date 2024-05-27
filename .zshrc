@@ -63,6 +63,14 @@ fi
 # Oh My ZSH plugins
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
+# Setup iterm2 to read from dotfiles
+is_zsh_setup=$(defaults read com.googlecode.iterm2.plist LoadPrefsFromCustomFolder)
+if [[ "$is_zsh_setup" != "1" ]]; then
+    echo "Configuring iTerm2"
+    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+    defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+fi
+
 # Plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
