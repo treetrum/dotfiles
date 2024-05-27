@@ -36,6 +36,9 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# Share history between shells
+setopt share_history
+
 # Make option-backspace work more like standard macos
 autoload -U select-word-style
 select-word-style bash
