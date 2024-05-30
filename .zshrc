@@ -46,9 +46,6 @@ select-word-style bash
 # Make instant prompt less verbose
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Aliases
 alias ll="ls -l"
 
@@ -79,3 +76,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light dominik-schwabe/zsh-fnm
 zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be last. See https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
+[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
