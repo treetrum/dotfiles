@@ -24,7 +24,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Load completions
 autoload -U compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # allow case insensitive completions
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=*' # Enable case-insensitive and fuzzy matching
 zstyle ':completion:*' menu select # highlights the active tab completion
 bindkey '^[[Z' reverse-menu-complete # allows shift-tab for backwards nav
 
