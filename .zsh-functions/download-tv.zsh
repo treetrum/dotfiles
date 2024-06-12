@@ -1,6 +1,7 @@
 download-tv() {
-    # Read .env file vars
-    set -a; source ../.env; set +a
+
+    local TENPLAY_USERNAME=$(op read "op://Private/10Play/username")
+    local TENPLAY_PASSWORD=$(op read "op://Private/10Play/password")
 
     local show=""
     local season=""
