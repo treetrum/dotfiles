@@ -36,8 +36,11 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-# Share history between shells
-setopt share_history
+# History
+setopt share_history # Share history between shells
+setopt hist_ignore_dups # Ignore duplicate commands in history
+HISTSIZE=20000 # Store 20,000 lines in memory
+SAVEHIST=20000 # Store 20,000 lines on disk
 
 # Make option-backspace work more like standard macos
 autoload -U select-word-style
@@ -79,3 +82,11 @@ zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be 
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
+
+# pnpm
+export PNPM_HOME="/Users/sam/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
