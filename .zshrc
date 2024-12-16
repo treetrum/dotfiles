@@ -51,6 +51,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Aliases
 alias ll="ls -l"
+alias p="pnpm"
+alias pn="pnpm"
 
 # Source all function files from functions_dir
 functions_dir=~/.zsh-functions
