@@ -86,7 +86,7 @@ zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be 
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
 
 # pnpm
-export PNPM_HOME="/Users/sam/Library/pnpm"
+export PNPM_HOME="/Users/$(whoami)/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
