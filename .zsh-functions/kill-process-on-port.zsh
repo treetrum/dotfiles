@@ -5,6 +5,6 @@ show-process-on-port() {
 
 kill-process-on-port() {
     port=$1
-    processId=$(lsof -ti:"$port")
+    processId=$(lsof -ti tcp:$port)
     kill -9 "$processId"
 }
