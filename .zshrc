@@ -94,7 +94,7 @@ esac
 # pnpm end
 
 # bun completions
-[ -s "/Users/daviss15/.bun/_bun" ] && source "/Users/daviss15/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
