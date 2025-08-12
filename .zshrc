@@ -99,3 +99,6 @@ zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# DO NOT TRACK
+export DO_NOT_TRACK=1
