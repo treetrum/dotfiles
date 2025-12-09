@@ -3,6 +3,8 @@ shell-integration-features = no-cursor
 cursor-style = block
 
 # theme
-theme = Catppuccin Frappe
+theme = Catppuccin Macchiato
 window-width = 120
 window-height = 32
+background-opacity = 0.9
+background-blur = 20
