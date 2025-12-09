@@ -4,3 +4,5 @@ cursor-style = block
 
 # theme
 theme = Catppuccin Frappe
+window-width = 120
+window-height = 32
