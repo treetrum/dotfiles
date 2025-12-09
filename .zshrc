@@ -102,3 +102,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # DO NOT TRACK
 export DO_NOT_TRACK=1
+
+# LazyGit 
+alias lg="lazygit"
