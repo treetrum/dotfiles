@@ -4,6 +4,8 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    gitbrowse = {},
+    gitbrowse = {
+      notify = true,
+    },
   },
 }
