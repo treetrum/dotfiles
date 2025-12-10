@@ -7,5 +7,13 @@ return {
     gitbrowse = {
       notify = true,
     },
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+        },
+      },
+    },
   },
 }
