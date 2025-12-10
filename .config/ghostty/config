@@ -8,3 +8,4 @@ window-width = 120
 window-height = 32
 background-opacity = 0.9
 background-blur = 20
+adjust-cell-height = 5%
