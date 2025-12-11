@@ -3,7 +3,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = true,
-    opts = { style = "moon" },
+    opts = { style = "moon", transparent = "true" },
   },
 
   -- Configure LazyVim to use the theme

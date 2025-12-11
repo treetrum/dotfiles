@@ -3,9 +3,14 @@ shell-integration-features = no-cursor
 cursor-style = block
 
 # theme
-theme = Catppuccin Macchiato
+theme = TokyoNight Moon
 window-width = 120
 window-height = 32
-background-opacity = 0.9
+background-opacity = 0.95
 background-blur = 20
 adjust-cell-height = 5%
+
+# typography
+font-size = 13
+font-thicken = true
+font-thicken-strength = 100
