@@ -105,3 +105,5 @@ export DO_NOT_TRACK=1
 
 # LazyGit 
 alias lg="lazygit"
+alias vim="nvim"
+alias n="nvim"
