@@ -1,4 +1,4 @@
-# Sam Davis dotfiles
+# Sam Davis dot files
 
 ### Prerequisites
 

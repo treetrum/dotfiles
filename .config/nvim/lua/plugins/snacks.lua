@@ -8,10 +8,10 @@ return {
       notify = true,
     },
     picker = {
-      files = {
-        hidden = true,
-      },
       sources = {
+        files = {
+          hidden = true,
+        },
         explorer = {
           hidden = true,
           ignored = true,
