@@ -18,3 +18,4 @@ font-thicken-strength = 100
 # send alt-j and alt-k as plain
 keybind = alt+j=esc:j
 keybind = alt+k=esc:k
+keybind = shift+enter=text:\n

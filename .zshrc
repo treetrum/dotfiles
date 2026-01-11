@@ -107,3 +107,6 @@ export DO_NOT_TRACK=1
 alias lg="lazygit"
 alias vim="nvim"
 alias n="nvim"
+
+# Add .local/bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
