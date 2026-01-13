@@ -1,5 +1,5 @@
 # use block cursor
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor, ssh-terminfo, ssh-env
 cursor-style = block
 
 # theme
@@ -21,7 +21,3 @@ keybind = alt+k=esc:k
 
 # send shift-enter as a newline
 keybind = shift+enter=text:\n
-
-# Make things work nicely with unraid
-shell-integration-features = ssh-terminfo
-shell-integration-features = ssh-env
