@@ -81,12 +81,11 @@ fi
 # Plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be last. See https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
-
 # Only install fnm plugin if fnm is installed
 if command -v fnm >/dev/null 2>&1; then
-  zinit light fnm-fish/fnm-zsh-completions
+  zinit light dominik-schwabe/zsh-fnm
 fi
+zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be last. See https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
