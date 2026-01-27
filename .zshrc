@@ -112,5 +112,8 @@ export DO_NOT_TRACK=1
 alias lg="lazygit"
 alias n="nvim"
 
+# Use .config directory for configs where possible
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
