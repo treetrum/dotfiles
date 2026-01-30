@@ -21,3 +21,6 @@ keybind = alt+k=esc:k
 
 # send shift-enter as a newline
 keybind = shift+enter=text:\n
+
+# Fix codex not respecting alt-backspace
+keybind = alt+backspace=text:\x1b\x7f
