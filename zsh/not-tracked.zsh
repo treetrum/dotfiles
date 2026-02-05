@@ -1,1 +1,1 @@
-source ~/zsh/computers/work.zsh
+source ~/zsh/computers/cba.zsh

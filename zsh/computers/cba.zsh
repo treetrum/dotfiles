@@ -1,6 +1,6 @@
 # Aliases
 
-alias open-chrome-no-cors='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/Users/daviss15/chrome-user-data-dir" --disable-web-security'
+alias open-chrome-no-cors='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="$HOME/chrome-user-data-dir" --disable-web-security'
 
 alias rsync-cbz-untracked="rsync -avm \
   --exclude='node_modules/' \
@@ -12,16 +12,14 @@ alias rsync-cbz-untracked="rsync -avm \
   --include='dev_server.db' \
   --include='*/' \
   --exclude='*' \
-  /Users/daviss15/Developer/commbiz-web/ ."
+  $HOME/Developer/commbiz-web/ ."
 
 # Homebrew
 
 export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 
 # Prisma Proxy
-
 alias unset-proxy="unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy"
- 
 export PRISMA_PROXY=http://cba.proxy.prismaaccess.com:8080
 alias set-proxy-prisma="export http_proxy=$PRISMA_PROXY \
     && export https_proxy=$PRISMA_PROXY \
@@ -56,8 +54,8 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 # Setup alpaca proxy & certs
 export {all,http,https}_proxy=http://localhost:3128
-export AWS_CA_BUNDLE="/Users/daviss15/.config/cacert/cacert.pem"
-export GIT_SSL_CAINFO="/Users/daviss15/.config/cacert/cacert.pem"
-export NODE_EXTRA_CA_CERTS="/Users/daviss15/.config/cacert/cacert.pem"
-export REQUESTS_CA_BUNDLE="/Users/daviss15/.config/cacert/cacert.pem"
-export SSL_CERT_FILE="/Users/daviss15/.config/cacert/cacert.pem"
+export AWS_CA_BUNDLE="$HOME/.config/cacert/cacert.pem"
+export GIT_SSL_CAINFO="$HOME/.config/cacert/cacert.pem"
+export NODE_EXTRA_CA_CERTS="$HOME/.config/cacert/cacert.pem"
+export REQUESTS_CA_BUNDLE="$HOME/.config/cacert/cacert.pem"
+export SSL_CERT_FILE="$HOME/.config/cacert/cacert.pem"
