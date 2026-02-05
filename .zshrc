@@ -55,14 +55,14 @@ alias p="pnpm"
 alias pn="pnpm"
 
 # Source all function files from functions_dir
-functions_dir=~/.zsh-functions
+functions_dir=~/zsh/functions
 for func_file in "$functions_dir"/*.zsh; do
     [[ -e "$func_file" ]] && source "$func_file"
 done
 
 # Source the machine specific config if it exists
-if [ -f ~/.not-tracked.zsh ]; then
-  source ~/.not-tracked.zsh
+if [ -f ~/zsh/not-tracked.zsh ]; then
+  source ~/zsh/not-tracked.zsh
 fi
 
 # Oh My ZSH plugins
@@ -118,3 +118,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Load .env file if it exists
+load_secrets() {
+  if [ -f "$HOME/.env" ]; then
+    set -a; source "$HOME/.env"; set +a
+  fi
+}
+load_secrets
