@@ -31,9 +31,15 @@ update_genai_token() {
 
     filepath="$HOME/dotfiles/.env"
 
-    # Prompt for new token (secure)
-    # Then update ANTHROPIC_AUTH_TOKEN in ~/.env
-    read -s "new_token?Enter new ANTHROPIC_AUTH_TOKEN: "
+    # Check if input is piped
+    if [ ! -t 0 ]; then
+        # Read from pipe
+        read -r new_token
+    else
+        # Prompt for new token (secure)
+        read -s "new_token?Enter new ANTHROPIC_AUTH_TOKEN: "
+    fi
+
     if [ -z "$new_token" ]; then
         echo "No token entered. Aborting."
         return 1
