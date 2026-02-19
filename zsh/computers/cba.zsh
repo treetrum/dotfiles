@@ -38,6 +38,7 @@ update_genai_token() {
     else
         # Prompt for new token (secure)
         read -s "new_token?Enter new ANTHROPIC_AUTH_TOKEN: "
+        echo "" # Move to a new line after input
     fi
 
     if [ -z "$new_token" ]; then
@@ -47,7 +48,6 @@ update_genai_token() {
 
     # Update .env file
     sed -i '' "s/^ANTHROPIC_AUTH_TOKEN=.*/ANTHROPIC_AUTH_TOKEN=\"$new_token\"/" "$filepath"
-    echo ""
     echo "ANTHROPIC_AUTH_TOKEN updated successfully."
 
     # Reload .env to update environment variable in current session
