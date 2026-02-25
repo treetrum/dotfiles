@@ -1,1 +1,0 @@
-source ~/zsh/computers/cba.zsh

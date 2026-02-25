@@ -1,3 +1,4 @@
 .DS_Store
-.not-tracked.zsh
+not-tracked.zsh
 .env
+
