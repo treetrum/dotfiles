@@ -10,6 +10,7 @@ alias rsync-cbz-untracked="rsync -avm \
   --include='lefthook-local.yml' \
   --include='config.yml' \
   --include='dev_server.db' \
+  --include='*local.*' \
   --include='*/' \
   --exclude='*' \
   $HOME/Developer/commbiz-web/ ."
