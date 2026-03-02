@@ -18,9 +18,8 @@ font-thicken-strength = 100
 # Use Option key as Alt/Meta for terminal applications
 macos-option-as-alt = true
 
-# send alt-j and alt-k as plain
+# send alt-j as plain (alt-k is used by tmux for clearing screen)
 keybind = alt+j=esc:j
-keybind = alt+k=esc:k
 
 # send shift-enter as a newline
 keybind = shift+enter=text:\n
