@@ -59,6 +59,9 @@ update_genai_token() {
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
 
+# Prevent opencode from making extra network requests (times out on CBA network)
+export OPENCODE_DISABLE_MODELS_FETCH=1
+
 # Setup alpaca proxy & certs
 export {all,http,https}_proxy=http://localhost:3128
 export AWS_CA_BUNDLE="$HOME/.config/cacert/cacert.pem"
