@@ -135,3 +135,6 @@ fi
 # hledger alias
 alias hl="hledger"
 
+
+# opencode
+export PATH=/Users/sam/.opencode/bin:$PATH
