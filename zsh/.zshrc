@@ -55,14 +55,14 @@ alias p="pnpm"
 alias pn="pnpm"
 
 # Source all function files from functions_dir
-functions_dir=~/zsh/functions
+functions_dir="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions"
 for func_file in "$functions_dir"/*.zsh; do
     [[ -e "$func_file" ]] && source "$func_file"
 done
 
 # Source the machine specific config if it exists
-if [ -f ~/zsh/not-tracked.zsh ]; then
-  source ~/zsh/not-tracked.zsh
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh" ]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh"
 fi
 
 # Oh My ZSH plugins
@@ -73,7 +73,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   is_zsh_setup=$(defaults read com.googlecode.iterm2.plist LoadPrefsFromCustomFolder)
   if [[ "$is_zsh_setup" != "1" ]]; then
     echo "Configuring iTerm2"
-    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/iterm2"
     defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
   fi
 fi
@@ -83,8 +83,8 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be last. See https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
 
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
-[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Configure fnm
 if command -v fnm >/dev/null 2>&1; then
