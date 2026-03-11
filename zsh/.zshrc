@@ -138,3 +138,7 @@ alias hl="hledger"
 
 # opencode
 export PATH=/Users/sam/.opencode/bin:$PATH
+
+# Setup worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
