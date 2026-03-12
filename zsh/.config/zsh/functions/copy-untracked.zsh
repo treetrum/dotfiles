@@ -1,18 +1,18 @@
-link-untracked() {
+copy-untracked() {
   emulate -L zsh
   setopt pipefail
   setopt extendedglob
   setopt null_glob
 
   # Parse flags and path
-  local use_copy=0
+  local use_link=0
   local force=0
   local src_root=""
   
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
-      --copy)
-        use_copy=1
+      --link)
+        use_link=1
         shift
         ;;
       --force|-f)
@@ -21,13 +21,13 @@ link-untracked() {
         ;;
       -*)
         echo "Unknown flag: $1"
-        echo "Usage: link-untracked [--copy] [--force|-f] /path/to/source-root"
+        echo "Usage: copy-untracked [--link] [--force|-f] [/path/to/source-root]"
         return 2
         ;;
       *)
         if [[ -n "$src_root" ]]; then
           echo "Error: Multiple paths specified"
-          echo "Usage: link-untracked [--copy] [--force|-f] /path/to/source-root"
+          echo "Usage: copy-untracked [--link] [--force|-f] [/path/to/source-root]"
           return 2
         fi
         src_root="$1"
@@ -84,7 +84,7 @@ link-untracked() {
         return 1
       fi
     else
-      echo "Usage: link-untracked [--copy] [--force|-f] /path/to/source-root"
+      echo "Usage: copy-untracked [--link] [--force|-f] [/path/to/source-root]"
       echo "No source path provided and not in a git repository."
       return 2
     fi
@@ -107,10 +107,10 @@ link-untracked() {
 
   echo "Source: $src_root"
   echo "Dest:   $dest_root"
-  if [[ "$use_copy" -eq 1 ]]; then
-    echo "Mode:   copy"
-  else
+  if [[ "$use_link" -eq 1 ]]; then
     echo "Mode:   symlink"
+  else
+    echo "Mode:   copy"
   fi
   if [[ "$force" -eq 1 ]]; then
     echo "Force:  enabled (will overwrite existing files)"
@@ -129,7 +129,7 @@ link-untracked() {
     return 1
   }
 
-  # Helper: link or copy file preserving relative path
+  # Helper: copy or link file preserving relative path
   _process_file() {
     local abs_src="$1"
     local rel="${abs_src#$src_root/}"
@@ -137,21 +137,7 @@ link-untracked() {
 
     mkdir -p "${abs_dest:h}"
 
-    if [[ "$use_copy" -eq 1 ]]; then
-      if [[ -e "$abs_dest" ]]; then
-        if [[ "$force" -eq 1 ]]; then
-          rm -f "$abs_dest"
-          cp "$abs_src" "$abs_dest"
-          echo "Copied (overwrite) $rel"
-        else
-          echo "Exists, skipping: $rel"
-          return 0
-        fi
-      else
-        cp "$abs_src" "$abs_dest"
-        echo "Copied $rel"
-      fi
-    else
+    if [[ "$use_link" -eq 1 ]]; then
       if [[ -e "$abs_dest" && ! -L "$abs_dest" ]]; then
         if [[ "$force" -eq 1 ]]; then
           rm -f "$abs_dest"
@@ -164,6 +150,20 @@ link-untracked() {
       else
         ln -sfn "$abs_src" "$abs_dest"
         echo "Linked $rel"
+      fi
+    else
+      if [[ -e "$abs_dest" ]]; then
+        if [[ "$force" -eq 1 ]]; then
+          rm -f "$abs_dest"
+          cp "$abs_src" "$abs_dest"
+          echo "Copied (overwrite) $rel"
+        else
+          echo "Exists, skipping: $rel"
+          return 0
+        fi
+      else
+        cp "$abs_src" "$abs_dest"
+        echo "Copied $rel"
       fi
     fi
   }
