@@ -62,11 +62,37 @@ link-untracked() {
   )
   # ===================================================================
 
+  # If no source root provided, try to find main git worktree root
   if [[ -z "$src_root" ]]; then
-    echo "Usage: link-untracked [--copy] [--force|-f] /path/to/source-root"
-    return 2
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+      # Get the common directory (points to main worktree's .git)
+      local git_common_dir
+      git_common_dir="$(git rev-parse --git-common-dir 2>/dev/null)"
+      
+      if [[ -n "$git_common_dir" && -f "$git_common_dir/config" ]]; then
+        # Get main worktree path from git worktree list
+        src_root="$(git worktree list --porcelain | awk '/^worktree/ {print $2; exit}')"
+        
+        if [[ -z "$src_root" ]]; then
+          echo "Error: Could not determine main worktree root"
+          return 1
+        fi
+        
+        echo "No source path provided, using main worktree root: $src_root"
+      else
+        echo "Error: Could not determine git worktree information"
+        return 1
+      fi
+    else
+      echo "Usage: link-untracked [--copy] [--force|-f] /path/to/source-root"
+      echo "No source path provided and not in a git repository."
+      return 2
+    fi
+  else
+    src_root="${src_root:A}"
   fi
 
+  # Ensure src_root is absolute if it wasn't already resolved
   src_root="${src_root:A}"
   if [[ ! -d "$src_root" ]]; then
     echo "Source path is not a directory: $src_root"
