@@ -48,6 +48,7 @@ copy-untracked() {
     "**/.env"
     "**/*/*.local.*"
     "**/lefthook-local.yml"
+    "**/dev_server.db"
   )
 
   # Directories to skip while searching (anywhere in the path)
