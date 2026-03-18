@@ -15,6 +15,8 @@ alias rsync-cbz-untracked="rsync -avm \
   --exclude='*' \
   $HOME/Developer/commbiz-web/ ."
 
+alias copy-untracked-cbz='copy-untracked -g "**/dev_server.db" -g "**/config.yml"'
+
 # Homebrew
 
 export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"

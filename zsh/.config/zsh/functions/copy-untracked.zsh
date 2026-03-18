@@ -8,7 +8,8 @@ copy-untracked() {
   local use_link=0
   local force=0
   local src_root=""
-  
+  local -a extra_globs=()
+
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
       --link)
@@ -19,15 +20,24 @@ copy-untracked() {
         force=1
         shift
         ;;
+      --glob|-g)
+        if [[ -z "$2" ]]; then
+          echo "Error: $1 requires a pattern argument"
+          echo "Usage: copy-untracked [--link] [--force|-f] [--glob|-g <pattern>]... [/path/to/source-root]"
+          return 2
+        fi
+        extra_globs+=("$2")
+        shift 2
+        ;;
       -*)
         echo "Unknown flag: $1"
-        echo "Usage: copy-untracked [--link] [--force|-f] [/path/to/source-root]"
+        echo "Usage: copy-untracked [--link] [--force|-f] [--glob|-g <pattern>]... [/path/to/source-root]"
         return 2
         ;;
       *)
         if [[ -n "$src_root" ]]; then
           echo "Error: Multiple paths specified"
-          echo "Usage: copy-untracked [--link] [--force|-f] [/path/to/source-root]"
+          echo "Usage: copy-untracked [--link] [--force|-f] [--glob|-g <pattern>]... [/path/to/source-root]"
           return 2
         fi
         src_root="$1"
@@ -41,14 +51,10 @@ copy-untracked() {
   # Examples:
   #   ".env"                 -> only root .env
   #   "**/.env"              -> .env at any depth (including root)
-  #   "**/*/*.local.*"       -> *.local.* at least 2 levels deep
-  #   "**/*.local.*"         -> *.local.* at any depth
-  #   "**/lefthook-local.yml"-> lefthook-local.yml at any depth
+  #   "**/*/*local.*"       -> *.local.* at least 2 levels deep
   local -a ALLOW_GLOBS=(
     "**/.env"
-    "**/*/*.local.*"
-    "**/lefthook-local.yml"
-    "**/dev_server.db"
+    "**/*local.*"
   )
 
   # Directories to skip while searching (anywhere in the path)
@@ -62,6 +68,11 @@ copy-untracked() {
     "coverage"
   )
   # ===================================================================
+
+  # Append any runtime globs to the allowlist
+  if [[ "${#extra_globs[@]}" -gt 0 ]]; then
+    ALLOW_GLOBS+=("${extra_globs[@]}")
+  fi
 
   # If no source root provided, try to find main git worktree root
   if [[ -z "$src_root" ]]; then
