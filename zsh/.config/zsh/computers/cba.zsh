@@ -32,7 +32,7 @@ alias set-proxy-prisma="export http_proxy=$PRISMA_PROXY \
 # Update ANTHROPIC_AUTH_TOKEN
 update_genai_token() {
 
-    filepath="$HOME/dotfiles/.env"
+    filepath="$HOME/dotfiles/zsh/.env"
 
     # Check if input is piped
     if [ ! -t 0 ]; then
