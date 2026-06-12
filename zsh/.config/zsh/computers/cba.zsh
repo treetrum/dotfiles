@@ -29,8 +29,8 @@ alias set-proxy-prisma="export http_proxy=$PRISMA_PROXY \
     && export HTTP_PROXY=$PRISMA_PROXY \
     && export HTTPS_PROXY=$PRISMA_PROXY"
 
-# Update ANTHROPIC_AUTH_TOKEN
-update_genai_token() {
+# Update PORTKEY_API_KEY
+update_portkey_token() {
 
     filepath="$HOME/dotfiles/zsh/.env"
 
@@ -40,7 +40,7 @@ update_genai_token() {
         read -r new_token
     else
         # Prompt for new token (secure)
-        read -s "new_token?Enter new ANTHROPIC_AUTH_TOKEN: "
+        read -s "new_token?Enter new PORTKEY_API_KEY: "
         echo "" # Move to a new line after input
     fi
 
@@ -49,9 +49,13 @@ update_genai_token() {
         return 1
     fi
 
+    # Escape characters that would break the sed expression (/, \, &)
+    local escaped_token
+    escaped_token=$(printf '%s' "$new_token" | sed 's/[\&/]/\\&/g')
+
     # Update .env file
-    sed -i '' "s/^ANTHROPIC_AUTH_TOKEN=.*/ANTHROPIC_AUTH_TOKEN=\"$new_token\"/" "$filepath"
-    echo "ANTHROPIC_AUTH_TOKEN updated successfully."
+    sed -i '' "s/^PORTKEY_API_KEY=.*/PORTKEY_API_KEY=\"$escaped_token\"/" "$filepath"
+    echo "PORTKEY_API_KEY updated successfully."
 
     # Reload .env to update environment variable in current session
     load_secrets
