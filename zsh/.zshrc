@@ -87,7 +87,9 @@ zinit light zsh-users/zsh-syntax-highlighting # important for this plugin to be 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Configure fnm
-if command -v fnm >/dev/null 2>&1; then
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+echo "Setting up FNM"
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 fi
 
