@@ -21,8 +21,8 @@ macos-option-as-alt = true
 # send alt-j as plain (alt-k is used by tmux for clearing screen)
 keybind = alt+j=esc:j
 
-# send shift-enter as a newline
-keybind = shift+enter=text:\n
+# send shift-enter as a newline with CSI-u encoding
+keybind = shift+enter=text:\x1b[13;2u
 
 # Fix codex not respecting alt-backspace
 keybind = alt+backspace=text:\x1b\x7f
