@@ -75,3 +75,7 @@ export GIT_SSL_CAINFO="$HOME/.config/cacert/cacert.pem"
 export NODE_EXTRA_CA_CERTS="$HOME/.config/cacert/cacert.pem"
 export REQUESTS_CA_BUNDLE="$HOME/.config/cacert/cacert.pem"
 export SSL_CERT_FILE="$HOME/.config/cacert/cacert.pem"
+
+# Corepack
+export COREPACK_NPM_REGISTRY="https://artifactory.internal.cba/api/npm/dp-npm"
+export COREPACK_INTEGRITY_KEYS="0"
