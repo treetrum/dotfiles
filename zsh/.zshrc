@@ -60,11 +60,6 @@ for func_file in "$functions_dir"/*.zsh; do
     [[ -e "$func_file" ]] && source "$func_file"
 done
 
-# Source the machine specific config if it exists
-if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh" ]; then
-  source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh"
-fi
-
 # Oh My ZSH plugins
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
@@ -110,7 +105,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # DO NOT TRACK
 export DO_NOT_TRACK=1
 
-# LazyGit 
+# LazyGit
 alias lg="lazygit"
 alias n="nvim"
 
@@ -146,4 +141,10 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 # Vite+ bin (https://viteplus.dev)
 if [ -f "$HOME/.vite-plus/env" ]; then
   . "$HOME/.vite-plus/env"
+fi
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Source the machine specific config if it exists (should be last)
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh" ]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh"
 fi

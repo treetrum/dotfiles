@@ -79,3 +79,10 @@ export SSL_CERT_FILE="$HOME/.config/cacert/cacert.pem"
 # Corepack
 export COREPACK_NPM_REGISTRY="https://artifactory.internal.cba/api/npm/dp-npm"
 export COREPACK_INTEGRITY_KEYS="0"
+
+# NPMRC Settings
+pnpm config set "//artifactory.internal.cba/api/npm/digitalchannels-lumen-npm/:_authToken" "$ARTIFACTORY_ENTERPRISE_NPM_AUTH"
+pnpm config set "//artifactory.internal.cba/artifactory/api/npm/:_authToken" "$ARTIFACTORY_ENTERPRISE_NPM_AUTH"
+pnpm config set "//artifactory.internal.cba/artifactory/api/npm/businessbankingservices-commbiz-npm/:_authToken" "$ARTIFACTORY_ENTERPRISE_NPM_AUTH"
+pnpm config set "//artifactory.internal.cba/artifactory/api/npm/dp-npm-new/:_authToken" "$ARTIFACTORY_ENTERPRISE_NPM_AUTH"
+pnpm config set "//artifactory.internal.cba/artifactory/api/npm/globalmarkets-sysmkts-npm/:_authToken" "$ARTIFACTORY_ENTERPRISE_NPM_AUTH"
