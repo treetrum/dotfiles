@@ -23,7 +23,7 @@ export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 
 # Prisma Proxy
 alias unset-proxy="unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy"
-export PRISMA_PROXY=http://cba.proxy.prismaaccess.com:8080
+export PRISMA_PROXY="$CBA_PRISMA_PROXY"
 alias set-proxy-prisma="export http_proxy=$PRISMA_PROXY \
     && export https_proxy=$PRISMA_PROXY \
     && export HTTP_PROXY=$PRISMA_PROXY \
@@ -77,5 +77,5 @@ export REQUESTS_CA_BUNDLE="$HOME/.config/cacert/cacert.pem"
 export SSL_CERT_FILE="$HOME/.config/cacert/cacert.pem"
 
 # Corepack
-export COREPACK_NPM_REGISTRY="https://artifactory.internal.cba/api/npm/dp-npm"
+export COREPACK_NPM_REGISTRY="$CBA_COREPACK_NPM_REGISTRY"
 export COREPACK_INTEGRITY_KEYS="0"
