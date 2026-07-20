@@ -17,6 +17,33 @@ alias rsync-cbz-untracked="rsync -avm \
 
 alias copy-untracked-cbz='copy-untracked -g "**/dev_server.db" -g "**/config.yml"'
 
+# Run all turbo tasks whose name starts with "codegen:" (reads ./turbo.json in cwd).
+# Pass extra args through to turbo, e.g. `cba-codegen --filter=web`.
+alias cbz-codegen='pnpm turbo $(jq -r ".tasks | keys[] | select(startswith(\"codegen:\"))" turbo.json | tr "\n" " ")'
+
+# Bootstrap a fresh commbiz-web worktree: copy untracked files, install deps, run codegen.
+cbz-wt-bootstrap() {
+  echo "==> Copying untracked files"
+  if ! copy-untracked-cbz; then
+    echo "Error: failed to copy untracked files" >&2
+    return 1
+  fi
+
+  echo "==> Installing dependencies"
+  if ! pnpm install; then
+    echo "Error: pnpm install failed" >&2
+    return 1
+  fi
+
+  echo "==> Running codegen"
+  if ! cbz-codegen; then
+    echo "Error: codegen failed" >&2
+    return 1
+  fi
+
+  echo "==> Worktree bootstrap complete"
+}
+
 # Homebrew
 
 export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
