@@ -148,3 +148,11 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh" ]; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/not-tracked.zsh"
 fi
+
+if [ -f "$HOME/.atuin/bin/env" ]; then
+  . "$HOME/.atuin/bin/env"
+fi
+
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi

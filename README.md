@@ -11,7 +11,7 @@
 1. Stow the packages you want, e.g.:
 
 ```sh
-stow zsh nvim tmux lazygit btop ghostty iterm2 vim
+stow zsh nvim tmux lazygit btop ghostty iterm2 vim atuin
 ```
 
 Or individually:
@@ -39,6 +39,7 @@ stow -D zsh
 | `tmux`    | `~/.config/tmux/`    |
 | `lazygit` | `~/.config/lazygit/` |
 | `btop`    | `~/.config/btop/`    |
+| `atuin`   | `~/.config/atuin/`   |
 | `ghostty` | `~/.config/ghostty/` |
 | `iterm2`  | `~/iterm2/`          |
 | `vim`     | `~/.vimrc`           |

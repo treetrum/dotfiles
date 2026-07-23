@@ -1,3 +1,4 @@
 .DS_Store
 zsh/.config/zsh/not-tracked.zsh
 .env
+atuin/.config/atuin/atuin-receipt.json
