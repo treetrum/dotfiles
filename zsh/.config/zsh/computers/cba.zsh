@@ -17,9 +17,10 @@ alias rsync-cbz-untracked="rsync -avm \
 
 alias copy-untracked-cbz='copy-untracked -g "**/dev_server.db" -g "**/config.yml"'
 
-# Run all turbo tasks whose name starts with "codegen:" (reads ./turbo.json in cwd).
+# Run all turbo tasks whose name starts with "codegen:" (reads ./turbo.jsonc in cwd).
+# Strip JSONC comments before piping to jq since jq only parses strict JSON.
 # Pass extra args through to turbo, e.g. `cba-codegen --filter=web`.
-alias cbz-codegen='pnpm turbo $(jq -r ".tasks | keys[] | select(startswith(\"codegen:\"))" turbo.json | tr "\n" " ")'
+alias cbz-codegen='pnpm turbo $(sed -E "s#//.*##" turbo.jsonc | jq -r ".tasks | keys[] | select(startswith(\"codegen:\"))" | tr "\n" " ")'
 
 # Bootstrap a fresh commbiz-web worktree: copy untracked files, install deps, run codegen.
 cbz-wt-bootstrap() {
