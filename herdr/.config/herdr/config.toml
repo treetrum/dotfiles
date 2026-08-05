@@ -1,0 +1,23 @@
+onboarding = false
+[keys]
+
+[[keys.command]]
+key = "prefix+g"
+type = "pane"
+command = "lazygit"
+
+[ui]
+agent_panel_sort = "spaces"
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "terminal"
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+# Experimental local Kitty graphics rendering for attached clients.
+# Lets pi (and other agents) render inline images through Herdr to Ghostty.
+[experimental]
+kitty_graphics = true
