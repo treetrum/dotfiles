@@ -8,7 +8,8 @@ window-width = 120
 window-height = 32
 background-opacity = 0.95
 background-blur = 20
-adjust-cell-height = 5%
+# adjust-cell-height = 5%
+# adjust-cell-width = 20%
 
 # typography
 font-size = 12
