@@ -2,3 +2,13 @@
 zsh/.config/zsh/not-tracked.zsh
 .env
 atuin/.config/atuin/atuin-receipt.json
+
+# Pi: track config only; credentials, sessions and caches stay local
+pi/.pi/*
+!pi/.pi/agent/
+pi/.pi/agent/*
+!pi/.pi/agent/AGENTS.md
+!pi/.pi/agent/settings.json
+!pi/.pi/agent/mcp.json
+!pi/.pi/agent/extensions/
+pi/.pi/agent/extensions/herdr-agent-state.ts

@@ -15,6 +15,7 @@ dotfiles/
 ├── iterm2/      → ~/iterm2/
 ├── lazygit/     → ~/.config/lazygit/
 ├── nvim/        → ~/.config/nvim/
+├── pi/          → ~/.pi/
 ├── tmux/        → ~/.config/tmux/
 ├── vim/         → ~/.vimrc
 └── zsh/         → ~/.zshrc, ~/.p10k.zsh, ~/.config/zsh/

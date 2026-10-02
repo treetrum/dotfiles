@@ -1,0 +1,51 @@
+{
+  "mcpServers": {
+    "xcode": {
+      "command": "xcrun",
+      "args": [
+        "mcpbridge"
+      ],
+      "toolExposure": {
+        "DocumentationSearch": "direct",
+        "XcodeMakeDir": "direct",
+        "StringCatalogContext": "direct",
+        "GetTestList": "direct",
+        "DeviceInteractionStartSession": "direct",
+        "XcodeSwitchScheme": "direct",
+        "XcodeRM": "direct",
+        "RunCodeSnippet": "direct",
+        "XcodeRefreshCodeIssuesInFile": "direct",
+        "GetConsoleOutput": "direct",
+        "RunSomeTests": "direct",
+        "XcodeListWindows": "direct",
+        "StopProject": "direct",
+        "RunProject": "direct",
+        "LocalizationPlanner": "direct",
+        "GetTopFieldPerformanceIssues": "direct",
+        "GetCrashIssueLogs": "direct",
+        "XcodeListSchemes": "direct",
+        "GetFieldPerformanceIssueLogs": "direct",
+        "StringCatalogEdit": "direct",
+        "XcodeSwitchRunDestination": "direct",
+        "DeviceInteractionEndSession": "direct",
+        "XcodeGlob": "direct",
+        "DeviceInteractionSynthesize": "direct",
+        "GetTopCrashIssues": "direct",
+        "UpdateFileCompilerFlags": "direct",
+        "XcodeGetCurrentFile": "direct",
+        "GetBuildLog": "direct",
+        "StringCatalogRead": "direct",
+        "BuildProject": "direct",
+        "DeviceInteractionInstallAndRun": "direct",
+        "RenderPreview": "direct",
+        "RunAllTests": "direct",
+        "XcodeMV": "direct",
+        "GetFileCompilerFlags": "direct",
+        "XcodeListRunDestinations": "direct",
+        "InvokeDebuggerCommand": "direct",
+        "XcodeListNavigatorIssues": "direct"
+      },
+      "description": "Xcode build, test, run, and project tools"
+    }
+  }
+}

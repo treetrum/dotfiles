@@ -1,0 +1,17 @@
+{
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-5-5",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:pi-anthropic-oauth"
+  ],
+  "enabledModels": [
+    "anthropic/claude-opus-5-5",
+    "anthropic/claude-sonnet-5-5"
+  ],
+  "theme": "dark",
+  "terminal": {
+    "imageWidthCells": 80
+  },
+  "lastChangelogVersion": "1.0.0"
+}
