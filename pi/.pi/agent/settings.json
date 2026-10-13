@@ -11,7 +11,8 @@
   ],
   "theme": "dark",
   "terminal": {
-    "imageWidthCells": 80
+    "imageWidthCells": 80,
+    "images": "kitty"
   },
-  "lastChangelogVersion": "1.0.0"
+  "lastChangelogVersion": "1.1.0"
 }
