@@ -11,8 +11,11 @@
 1. Stow the packages you want, e.g.:
 
 ```sh
-stow zsh nvim tmux lazygit btop ghostty iterm2 vim atuin herdr pi
+stow zsh nvim tmux lazygit btop ghostty iterm2 vim atuin herdr pi worktrunk
+stow --no-folding agents
 ```
+
+`agents` must use `--no-folding` so Stow doesn't replace `~/.claude` or `~/.codex` with a symlink.
 
 Or individually:
 
@@ -45,3 +48,5 @@ stow -D zsh
 | `iterm2`  | `~/iterm2/`          |
 | `vim`     | `~/.vimrc`           |
 | `pi`      | `~/.pi/`             |
+| `worktrunk` | `~/.config/worktrunk/` |
+| `agents`  | `~/.config/agents/AGENTS.md`, linked from `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, `~/.config/opencode/AGENTS.md` and `~/.pi/agent/AGENTS.md` |

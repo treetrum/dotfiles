@@ -10,16 +10,24 @@ symlinks from `$HOME` into the corresponding package directory.
 
 ```
 dotfiles/
+├── agents/      → ~/.config/agents/AGENTS.md, plus links from ~/.claude, ~/.codex, ~/.config/opencode
+├── atuin/       → ~/.config/atuin/
 ├── btop/        → ~/.config/btop/
 ├── ghostty/     → ~/.config/ghostty/
+├── herdr/       → ~/.config/herdr/
 ├── iterm2/      → ~/iterm2/
 ├── lazygit/     → ~/.config/lazygit/
 ├── nvim/        → ~/.config/nvim/
 ├── pi/          → ~/.pi/
 ├── tmux/        → ~/.config/tmux/
 ├── vim/         → ~/.vimrc
+├── worktrunk/   → ~/.config/worktrunk/
 └── zsh/         → ~/.zshrc, ~/.p10k.zsh, ~/.config/zsh/
 ```
+
+`agents/.config/agents/AGENTS.md` holds the global instructions shared by every coding agent. The
+Claude Code, Codex, opencode and pi files are relative symlinks to it, so edit only that file.
+Stow it with `--no-folding` so Stow never replaces `~/.claude` or `~/.codex` with a symlink.
 
 ---
 
@@ -30,7 +38,8 @@ Deployment is purely via Stow.
 
 ```sh
 # Install all packages
-stow zsh nvim tmux lazygit btop ghostty iterm2 vim
+stow zsh nvim tmux lazygit btop ghostty iterm2 vim atuin herdr pi worktrunk
+stow --no-folding agents
 
 # Install a single package
 stow zsh
@@ -204,7 +213,7 @@ type(scope): short imperative description
 ```
 
 - **Types:** `feat`, `chore`, `fix`, `refactor`, `docs`
-- **Scopes:** match the package name — `zsh`, `nvim`, `tmux`, `lazygit`, `ghostty`, `btop`
+- **Scopes:** match the package name — `zsh`, `nvim`, `tmux`, `lazygit`, `ghostty`, `btop`, `pi`, `agents`, etc.
 - **Message:** lowercase, imperative mood, no period
 - **Examples:**
   ```
